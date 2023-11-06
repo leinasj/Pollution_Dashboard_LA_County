@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_040607c0644a17a19f686d39576464c2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_040607c0644a17a19f686d39576464c2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_040607c0644a17a19f686d39576464c2 = L.map(
+                "map_040607c0644a17a19f686d39576464c2",
+                {
+                    center: [34.0756, -118.3],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ce69b9fb0f4e9b155b1e94d98e8dba07 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var marker_7b6f154299458b08b5981ac41526f6e6 = L.marker(
+                [34.0663, -118.227],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_a71d55dce006e94c2cd954ad17463f68 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7b6f154299458b08b5981ac41526f6e6.setIcon(icon_a71d55dce006e94c2cd954ad17463f68);
+        
+    
+        var popup_0d9face8501f78cd1b0369c3b52951b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_47e082e974d579b4b64c76469d1d8205 = $(`<div id="html_47e082e974d579b4b64c76469d1d8205" style="width: 100.0%; height: 100.0%;">Central LA CO</div>`)[0];
+                popup_0d9face8501f78cd1b0369c3b52951b8.setContent(html_47e082e974d579b4b64c76469d1d8205);
+            
+        
+
+        marker_7b6f154299458b08b5981ac41526f6e6.bindPopup(popup_0d9face8501f78cd1b0369c3b52951b8)
+        ;
+
+        
+    
+    
+            marker_7b6f154299458b08b5981ac41526f6e6.bindTooltip(
+                `<div>
+                     Monitor 1
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_54dbbdaf6fdb663b8dafbe9c3133e7c5 = L.marker(
+                [33.9288, -118.211],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_0e9228c20c9b7a0f8263c6aa1caf4c5f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_54dbbdaf6fdb663b8dafbe9c3133e7c5.setIcon(icon_0e9228c20c9b7a0f8263c6aa1caf4c5f);
+        
+    
+        var popup_3e70814cc6a855c179e27d989811a3bb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a7bdd4709b032f6bdf2f03c1a92e122a = $(`<div id="html_a7bdd4709b032f6bdf2f03c1a92e122a" style="width: 100.0%; height: 100.0%;">S Central LA CO</div>`)[0];
+                popup_3e70814cc6a855c179e27d989811a3bb.setContent(html_a7bdd4709b032f6bdf2f03c1a92e122a);
+            
+        
+
+        marker_54dbbdaf6fdb663b8dafbe9c3133e7c5.bindPopup(popup_3e70814cc6a855c179e27d989811a3bb)
+        ;
+
+        
+    
+    
+            marker_54dbbdaf6fdb663b8dafbe9c3133e7c5.bindTooltip(
+                `<div>
+                     Monitor 2
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5bea24dc5f9870c755dbc36b1ab0035b = L.marker(
+                [34.0102, -118.069],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_fece56ac044723b582b756c8777a09df = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5bea24dc5f9870c755dbc36b1ab0035b.setIcon(icon_fece56ac044723b582b756c8777a09df);
+        
+    
+        var popup_08a796cd8399eaf69a6b248e184eb2f7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_366515926a234ea1e346f82ee82a1c20 = $(`<div id="html_366515926a234ea1e346f82ee82a1c20" style="width: 100.0%; height: 100.0%;">S San Gabriel Vly</div>`)[0];
+                popup_08a796cd8399eaf69a6b248e184eb2f7.setContent(html_366515926a234ea1e346f82ee82a1c20);
+            
+        
+
+        marker_5bea24dc5f9870c755dbc36b1ab0035b.bindPopup(popup_08a796cd8399eaf69a6b248e184eb2f7)
+        ;
+
+        
+    
+    
+            marker_5bea24dc5f9870c755dbc36b1ab0035b.bindTooltip(
+                `<div>
+                     Monitor 3
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_78fc2632f3108b727b4fbddaeba5834f = L.marker(
+                [33.9883, -118.47],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_ac6a6a53d946bee531ffeebfdf1313af = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_78fc2632f3108b727b4fbddaeba5834f.setIcon(icon_ac6a6a53d946bee531ffeebfdf1313af);
+        
+    
+        var popup_691aec0811453b97adfc9240279d7a5c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_98d80f6bc0bec469ca0b3d878d061911 = $(`<div id="html_98d80f6bc0bec469ca0b3d878d061911" style="width: 100.0%; height: 100.0%;">NW Coastal LA</div>`)[0];
+                popup_691aec0811453b97adfc9240279d7a5c.setContent(html_98d80f6bc0bec469ca0b3d878d061911);
+            
+        
+
+        marker_78fc2632f3108b727b4fbddaeba5834f.bindPopup(popup_691aec0811453b97adfc9240279d7a5c)
+        ;
+
+        
+    
+    
+            marker_78fc2632f3108b727b4fbddaeba5834f.bindTooltip(
+                `<div>
+                     Monitor 4
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e4e72434fd838d2766c2a0c8f34c18a0 = L.marker(
+                [33.8604, -118.144],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_dce41f07ff0dfc83ee25071ab896b454 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e4e72434fd838d2766c2a0c8f34c18a0.setIcon(icon_dce41f07ff0dfc83ee25071ab896b454);
+        
+    
+        var popup_cdb96f3d65380735f684ef92ef7648e6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b3daf88fb00bebac43589c21f3f29940 = $(`<div id="html_b3daf88fb00bebac43589c21f3f29940" style="width: 100.0%; height: 100.0%;">S Coastal LA</div>`)[0];
+                popup_cdb96f3d65380735f684ef92ef7648e6.setContent(html_b3daf88fb00bebac43589c21f3f29940);
+            
+        
+
+        marker_e4e72434fd838d2766c2a0c8f34c18a0.bindPopup(popup_cdb96f3d65380735f684ef92ef7648e6)
+        ;
+
+        
+    
+    
+            marker_e4e72434fd838d2766c2a0c8f34c18a0.bindTooltip(
+                `<div>
+                     Monitor 5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90d14b91824ad07e4e03cf88de46a8db = L.marker(
+                [33.7934, -118.316],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_7882096e5330a6c6d3ff044401d8276f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_90d14b91824ad07e4e03cf88de46a8db.setIcon(icon_7882096e5330a6c6d3ff044401d8276f);
+        
+    
+        var popup_001e3b2d4a595de93153b3b8d1d73587 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_19879f314f93b3be71d4dff01116c7dc = $(`<div id="html_19879f314f93b3be71d4dff01116c7dc" style="width: 100.0%; height: 100.0%;">SW Coastal LA</div>`)[0];
+                popup_001e3b2d4a595de93153b3b8d1d73587.setContent(html_19879f314f93b3be71d4dff01116c7dc);
+            
+        
+
+        marker_90d14b91824ad07e4e03cf88de46a8db.bindPopup(popup_001e3b2d4a595de93153b3b8d1d73587)
+        ;
+
+        
+    
+    
+            marker_90d14b91824ad07e4e03cf88de46a8db.bindTooltip(
+                `<div>
+                     Monitor 6
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a911c5200a4585196138fa5036093ee2 = L.marker(
+                [34.2085, -118.202],
+                {}
+            ).addTo(map_040607c0644a17a19f686d39576464c2);
+        
+    
+            var icon_224048129198e209926c7fec38087959 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a911c5200a4585196138fa5036093ee2.setIcon(icon_224048129198e209926c7fec38087959);
+        
+    
+        var popup_68aedb03dbca5c4656a3b01365c852de = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_838b1218756bb198ddf38c862e024185 = $(`<div id="html_838b1218756bb198ddf38c862e024185" style="width: 100.0%; height: 100.0%;">W San Gabriel Vly</div>`)[0];
+                popup_68aedb03dbca5c4656a3b01365c852de.setContent(html_838b1218756bb198ddf38c862e024185);
+            
+        
+
+        marker_a911c5200a4585196138fa5036093ee2.bindPopup(popup_68aedb03dbca5c4656a3b01365c852de)
+        ;
+
+        
+    
+    
+            marker_a911c5200a4585196138fa5036093ee2.bindTooltip(
+                `<div>
+                     Monitor 7
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

@@ -3,7 +3,7 @@ import time
 
 def main():
     # zipcodes for LA County
-    zipcodes = ['90004', '90280','90040']
+    zipcodes = ['90004', '90280','90040', '90294', '90711', '90717', '91011']
     
     while True:
         for code in zipcodes:
