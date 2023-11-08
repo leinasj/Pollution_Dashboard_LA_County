@@ -1,4 +1,4 @@
-from my_sql_db_connection import get_observation
+from my_sql_db_connection import get_current_observation
 import time
 
 def main():
@@ -7,7 +7,7 @@ def main():
     
     while True:
         for code in zipcodes:
-            get_observation(code)
+            get_current_observation(code)
         time.sleep(10800)
         
 if __name__ == "__main__":
