@@ -7,12 +7,14 @@ import json
 import streamlit.components.v1 as components
 import mysql.connector
 import os
+import datetime
+from Images.map_details import define_map
 from dotenv import load_dotenv
 load_dotenv()
 
 st.set_page_config(page_title="Los Angeles County Air Pollutants 2000-Present", layout="wide", menu_items={"About":"Made by Leinas"})
-st.markdown("<h1 style='text-align: center;'>Los Angeles County Air Pollutants (2000-Present)</h1>", unsafe_allow_html=True)
-st.sidebar.header("Dashboard Options")
+st.markdown("<h1 style='text-align: center;'>Los Angeles County Air Pollutants Live Observations</h1>", unsafe_allow_html=True)
+st.sidebar.header("Options")
 
 
 with open('SQL\Query_Daily_Observations.sql', 'r') as s:
@@ -31,9 +33,10 @@ x = cursor.fetchall()
 x= pd.DataFrame(x, columns=['Columns'])
 cursor.execute(sql_query)
 data = pd.DataFrame(cursor.fetchall(), columns=x['Columns'])
-st.dataframe(data[['DateObserved', 'HourObserved', 'ReportingArea', 'ParameterName', 'AQI']])
-st.sidebar.selectbox(label = "Reporting Areas", options = data['ReportingArea'].unique())
-    
-HtmlFile = open("Images\map.html", 'r', encoding='utf-8')
+data = data.loc[data['HourObserved'] == max(data['HourObserved'])]
+selection = st.sidebar.multiselect(label = "Select Reporting Areas", options = data['ReportingArea'].unique(), default=data['ReportingArea'].unique())
+define_map(data.loc[data['ReportingArea'].isin(selection)])
+HtmlFile = open("map.html", 'r', encoding='utf-8')
 source_code = HtmlFile.read()
 components.html(source_code, width=1000, height=600)
+st.dataframe(data[['DateObserved', 'HourObserved', 'ReportingArea', 'ParameterName', 'AQI', 'AQI_Classification']])

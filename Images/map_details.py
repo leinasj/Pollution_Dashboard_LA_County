@@ -1,54 +1,24 @@
 import folium
 
-m=folium.Map([34.0756, -118.3],zoom_start=10)
+color_map = {
+    "Good":'green',
+    "Moderate": 'yellow',
+    "Unhealthy for Sensitive Groups": 'orange',
+    "Unhealthy": 'red',
+    "Very Unhealthy": 'purple',
+    "Hazardous": 'maroon'
+}
 
-folium.Marker(
-    location=[34.0663, -118.227],
-    tooltip="Monitor 1",
-    popup="Central LA CO",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
+def define_map(observations):
+    m=folium.Map([34.0756, -118.3],zoom_start=10)
+    for i, v in observations.iterrows():
+        folium.Marker(
+            location=[v['Latitude'], v['Longitude']],
+            tooltip=f"<b>{v['ReportingArea']}, AQI: {v['AQI']}, AQI_Classification: {v['AQI_Classification']}</b>",
+            popup=folium.Popup(folium.IFrame(
+                f"<b>AQI (Ozone):</b> {v['AQI']}<br><b>AQI_Classification:</b> {v['AQI_Classification']}<br><b>Last Observation at:</b> {v['HourObserved']}:00 {v['LocalTimeZone']}, {v['DateObserved'].isoformat()}<br><b>Monitor Site:</b> {v['ReportingArea']}<br><b>Coordinates:</b> {v['Longitude'],v['Latitude']}"),
+            min_width=310, max_width=310, parse_html = True),
+            icon=folium.Icon(icon="cloud", color = f"{color_map[v['AQI_Classification']]}"),
+        ).add_to(m)
 
-folium.Marker(
-    location=[33.9288,-118.211],
-    tooltip="Monitor 2",
-    popup="S Central LA CO",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-folium.Marker(
-    location=[34.0102,-118.069],
-    tooltip="Monitor 3",
-    popup="S San Gabriel Vly",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-folium.Marker(
-    location=[33.9883,-118.47],
-    tooltip="Monitor 4",
-    popup="NW Coastal LA",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-folium.Marker(
-    location=[33.8604,-118.144],
-    tooltip="Monitor 5",
-    popup="S Coastal LA",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-folium.Marker(
-    location=[33.7934,-118.316],
-    tooltip="Monitor 6",
-    popup="SW Coastal LA",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-folium.Marker(
-    location=[34.2085,-118.202],
-    tooltip="Monitor 7",
-    popup="W San Gabriel Vly",
-    icon=folium.Icon(icon="cloud", color = 'blue'),
-).add_to(m)
-
-m.save("map.html")
+    m.save("map.html")
