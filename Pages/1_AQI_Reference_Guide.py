@@ -5,7 +5,7 @@ st.set_page_config(page_title="Air Quality Index Reference Guide", layout="wide"
 st.markdown("<h1 style='text-align: left;'>Air Quality Index (AQI)</h1>", unsafe_allow_html=True)
 st.divider()
 st.markdown("<b style='text-align: left;'>The EPA developed the AQI, which reports levels of ozone, particle pollution, and other common air pollutants on the same scale. An AQI reading of 101 corresponds to a level above the national air quality standard - the higher the AQI rating, the greater the health impact.</b>", unsafe_allow_html=True)
-image = Image.open("Images\AQI_Chart_US.png")
+image = Image.open("Visualizations\AQI_Chart_US.png")
 st.image(image=image, caption="United States AQI Reference Guide", width = 1000)
 st.divider()
 st.markdown("<h1 style='text-align: left;'>Air quality observations</h1>", unsafe_allow_html=True)
