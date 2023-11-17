@@ -5,8 +5,8 @@ def daterange(start_date, end_date):
     for n in range(int((end_date - start_date).days)):
         yield start_date + timedelta(n)
 
-start_date = date(2008, 1, 1)
-end_date = date(2009, 1, 1)
+start_date = date(2014, 1, 1)
+end_date = date(2015, 1, 1)
 
 # zipcodes for LA County
 zipcodes = ['90004', '90280','90040', '90294', '90711', '90717', '91011']
