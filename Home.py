@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 hide_streamlit_style = """ <style> footer {visibility: hidden;} </style> """
-st.set_page_config(page_title="Los Angeles County Air Pollutants 2000-Present", layout="wide", menu_items={"About":"Made by Leinas"}, initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Los Angeles County Air Pollutants 2000-Present",page_icon="Visualizations/air_pollution.png", layout="wide", menu_items={"About":"Made by Leinas"}, initial_sidebar_state="collapsed")
 st.markdown("<h1 style='text-align: center;'>Los Angeles County Air Pollutants Dashboard</h1>", unsafe_allow_html=True)
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
@@ -78,9 +78,11 @@ data = pd.DataFrame(cursor.fetchall(), columns = columns)
 with col2:
     
     if data.loc[data['Date'] == datetime.date.today() + timedelta(days=1)].empty:
-        st.subheader("Todays's AQI Forecast")
+        st.subheader("Today's AQI Forecast")
         st.dataframe(data.loc[data['Date'] == datetime.date.today()].sort_values(by = 'City'), use_container_width=True, hide_index=True)
-    elif not data.loc[data['Date'] == datetime.date.today() + timedelta(days=1)].empty:
+    else:
+        st.subheader("Today's AQI Forecast")
+        st.dataframe(data.loc[data['Date'] == datetime.date.today()].sort_values(by = 'City'), use_container_width=True, hide_index=True)
         st.subheader("Tomorrow's AQI Forecast")    
         st.dataframe(data.loc[data['Date'] == datetime.date.today()+ timedelta(days=1)].sort_values(by = 'City'), use_container_width=True, hide_index=True)
     
@@ -128,14 +130,12 @@ with col7:
     st.dataframe(max_AQI.sort_values(by="Month")[["Date", "AQI", "AQI_Classification", "Month", "Action Days"]], hide_index=True, use_container_width=True, height=450)
 
 color_map = ['green','yellow','orange','red','purple', 'maroon']
-
+classification_map = ["Good", "Moderate", "Unhealthy for Sensitive Groups", "Unhealthy", "Very Unhealthy/Hazardous"]
 with col8:
-    fig = go.Figure(data=[go.Pie(labels=x['AQI_Classification'].sort_values().unique(), values=x['AQI_Classification'].value_counts(normalize=True), hole=.3)])
-    fig.update_layout(title='Distribution of AQI Classes')
+    fig = go.Figure(data=[go.Pie(labels=classification_map, values=x['AQI_Classification'].sort_values().value_counts(normalize=False), hole=.3)])
+    fig.update_layout(title=f"Distribution of AQI Classes for {city} ({min(x['Date'])})-({max(x['Date'])})")
     fig.update_traces(marker=dict(colors=color_map),hoverinfo='label+percent', textinfo='percent',textposition='inside')
     st.plotly_chart(fig, use_container_width=True)
-
-
 
 cursor.close()
 cnx.close()

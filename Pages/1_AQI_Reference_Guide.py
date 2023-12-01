@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Air Quality Index Reference Guide", layout="wide", menu_items={"About":"Made by Leinas"})
+st.set_page_config(page_title="Air Quality Index Reference Guide",page_icon="Visualizations/air_pollution.png", layout="wide", menu_items={"About":"Made by Leinas"})
 st.markdown("<h1 style='text-align: left;'>Air Quality Index (AQI)</h1>", unsafe_allow_html=True)
 st.divider()
 st.markdown("<b style='text-align: left;'>The EPA developed the AQI, which reports levels of ozone, particle pollution, and other common air pollutants on the same scale. An AQI reading of 101 corresponds to a level above the national air quality standard - the higher the AQI rating, the greater the health impact.</b>", unsafe_allow_html=True)

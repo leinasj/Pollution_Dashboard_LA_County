@@ -26,21 +26,22 @@ def plot_ts(mid_point, x, title, chart_type={'line', 'bar', 'scatter'}):
         fig2 = px.line(x.sort_values('Date'), x="Date", y="avg", color = "City")
         fig = go.Figure(data=fig.data + fig2.data)
         fig.update_layout(title = title,xaxis_title="Date", yaxis_title="AQI")
+        fig.update_xaxes(tickformat="%Y-%m-%d")
     # AQI Classification lines for reference points of AQI values
-    if max(x['AQI']) >= 0 and max(x['AQI']) <= 50 :
+    if max(x['AQI']) >= 0 and max(x['AQI']) <= 75:
         fig.add_hline(y=50, line_width=3, line_dash="dash", line_color="green")
         fig.add_annotation(x=mid_point, y=47.5, text="Good", showarrow = False)
-    elif max(x['AQI']) >= 50:
+    elif max(x['AQI']) >= 75:
         fig.add_hline(y=50, line_width=3, line_dash="dash", line_color="green")
         fig.add_annotation(x=mid_point, y=25, text="Good", showarrow = False)
-    if max(x['AQI']) >=100:
         fig.add_annotation(x=mid_point, y=75, text="Moderate", showarrow = False)
         fig.add_hline(y=100, line_width=3, line_dash="dash", line_color="yellow")
+    if max(x['AQI']) >=100:
         fig.add_annotation(x=mid_point, y=125, text="Unhealthy for Sensitive Groups", showarrow = False)
-    if max(x['AQI']) >=150:
         fig.add_hline(y=150, line_width=3, line_dash="dash", line_color="orange")
-        fig.add_hline(y=200, line_width=3, line_dash="dash", line_color="red")
+    if max(x['AQI']) >=150:
         fig.add_annotation(x=mid_point, y=175, text="Unhealthy", showarrow = False)
+        fig.add_hline(y=200, line_width=3, line_dash="dash", line_color="red")
         fig.add_annotation(x=mid_point, y=210, text="Very Unhealthy/Hazardous", showarrow = False)
 
     return fig
