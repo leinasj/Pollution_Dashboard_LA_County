@@ -26,16 +26,10 @@ columns = ["Date", "HourObserved", "LocalTimeZone", "Reporting Area",
            "AQI", "AQI_Number", "AQI_Classification", "DateYear", "DateMonth", "DateDay", "City", "Action_Days"]
 
 # Connect to 'air_pollution' MySQL database instance with user credentials 
-cnx = mysql.connector.connect(user='root', password=os.environ.get('MY_SQL_DB_PASS'),
-                            host='127.0.0.1',
-                            database='air_pollution')
+conn = st.connection('mysql', type='sql')
 
-# Instatiate cursor for execution of SQL queries 
-cursor = cnx.cursor()
 
-cursor.execute(sql_query)
-
-live_data = pd.DataFrame(cursor.fetchall(), columns=columns)
+live_data = pd.DataFrame(conn.query(sql_query), columns=columns)
 live_data = live_data.loc[live_data['HourObserved'] == max(live_data['HourObserved'])]
 define_map(live_data.loc[live_data['City'].isin(live_data['City'].unique())])
 HtmlFile = open("map.html", 'r', encoding='utf-8')
@@ -49,9 +43,7 @@ components.html(source_code, width=1000, height=400)
 with open('SQL/Query_weekly_observations.sql', 'r') as s:
     sql_query = s.read()
 
-cursor.execute(sql_query)
-
-data = pd.DataFrame(cursor.fetchall(), columns=columns)
+data = pd.DataFrame(conn.query(sql_query), columns=columns)
 # Calculate mid-point for annotation sliding based on date range
 mid_point = min(data['Date']) + (max(data['Date']) - min(data['Date']))/2
 
@@ -73,8 +65,7 @@ columns = ["Date", "City", "Pollutant", "AQI", "AQI_Classification"]
 with open('SQL/Query_Forecast.sql', 'r') as s:
     sql_query = s.read()
 
-cursor.execute(sql_query)
-data = pd.DataFrame(cursor.fetchall(), columns = columns)
+data = pd.DataFrame(conn.query(sql_query), columns = columns)
 with col2:
     
     if data.loc[data['Date'] == datetime.date.today() + timedelta(days=1)].empty:
@@ -91,9 +82,7 @@ columns = ["Date", "City", "AQI", "AQI_Classification", "Month", "Action Days"]
 with open('SQL/Time_Series_Pollution.sql', 'r') as s:
     sql_query = s.read()
 
-cursor.execute(sql_query)
-x = cursor.fetchall()
-x = pd.DataFrame(x, columns=columns)
+x = pd.DataFrame(conn.query(sql_query), columns=columns)
 
 st.divider()
 
@@ -136,6 +125,3 @@ with col8:
     fig.update_layout(title=f"Distribution of AQI Classes for {city} ({min(x['Date'])})-({max(x['Date'])})")
     fig.update_traces(marker=dict(colors=color_map),hoverinfo='label+percent', textinfo='percent',textposition='inside')
     st.plotly_chart(fig, use_container_width=True)
-
-cursor.close()
-cnx.close()
