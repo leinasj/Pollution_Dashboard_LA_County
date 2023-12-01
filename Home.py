@@ -18,7 +18,7 @@ st.set_page_config(page_title="Los Angeles County Air Pollutants 2000-Present",p
 st.markdown("<h1 style='text-align: center;'>Los Angeles County Air Pollutants Dashboard</h1>", unsafe_allow_html=True)
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-with open('SQL\Query_Daily_Observations.sql', 'r') as s:
+with open('SQL/Query_Daily_Observations.sql', 'r') as s:
     sql_query = s.read()
 
 columns = ["Date", "HourObserved", "LocalTimeZone", "Reporting Area",
@@ -46,7 +46,7 @@ st.subheader(f"**Los Angeles County Live Observations**")
 st.caption(f"**Last Observation made at {live_data['HourObserved'].unique()[0]}:00 {live_data['LocalTimeZone'].unique()[0]}, {live_data['Date'].unique()[0].isoformat()}**")
 components.html(source_code, width=1000, height=400)
 
-with open('SQL\Query_weekly_observations.sql', 'r') as s:
+with open('SQL/Query_weekly_observations.sql', 'r') as s:
     sql_query = s.read()
 
 cursor.execute(sql_query)
@@ -70,7 +70,7 @@ with col1:
 
 columns = ["Date", "City", "Pollutant", "AQI", "AQI_Classification"]
 
-with open('SQL\Query_Forecast.sql', 'r') as s:
+with open('SQL/Query_Forecast.sql', 'r') as s:
     sql_query = s.read()
 
 cursor.execute(sql_query)
@@ -88,7 +88,7 @@ with col2:
     
 columns = ["Date", "City", "AQI", "AQI_Classification", "Month", "Action Days"]
 
-with open('SQL\Time_Series_Pollution.sql', 'r') as s:
+with open('SQL/Time_Series_Pollution.sql', 'r') as s:
     sql_query = s.read()
 
 cursor.execute(sql_query)
