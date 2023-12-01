@@ -54,18 +54,6 @@ json5==0.9.14
 jsonpointer==2.4
 jsonschema==4.19.1
 jsonschema-specifications==2023.7.1
-jupyter==1.0.0
-jupyter-console==6.6.3
-jupyter-events==0.8.0
-jupyter-lsp==2.2.0
-jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1697036793436/work
-jupyter_core @ file:///D:/bld/jupyter_core_1696972408826/work
-jupyter_server==2.8.0
-jupyter_server_terminals==0.4.4
-jupyterlab==4.0.7
-jupyterlab-pygments==0.2.2
-jupyterlab-widgets==3.0.9
-jupyterlab_server==2.25.0
 kiwisolver==1.4.5
 markdown-it-py==3.0.0
 MarkupSafe==2.1.3
