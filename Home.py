@@ -26,7 +26,7 @@ columns = ["Date", "HourObserved", "LocalTimeZone", "Reporting Area",
            "AQI", "AQI_Number", "AQI_Classification", "DateYear", "DateMonth", "DateDay", "City", "Action_Days"]
 
 # Connect to 'air_pollution' MySQL database instance with user credentials 
-conn = st.connection('mysql', type='sql')
+conn = st.connection('air_pollution', type='sql')
 
 
 live_data = pd.DataFrame(conn.query(sql_query), columns=columns)
