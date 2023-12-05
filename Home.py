@@ -4,7 +4,6 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit.components.v1 as components
-import mysql.connector
 import os
 import datetime
 from datetime import timedelta 
